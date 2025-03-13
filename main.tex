@@ -1,0 +1,231 @@
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\title{Mathematical Typesetting in LaTeX}
+\subtitle{A Comprehensive Guide}
+\author{Your Name}
+\institute{Your Institution}
+\date{February 4, 2025}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray}
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{What is Mathematical Typesetting?}
+\begin{itemize}
+\item Professional presentation of mathematical notation
+\item Essential for:
+\begin{itemize}
+\item Research papers (e.g., \cite{einstein})
+\item Technical documentation
+\item Academic textbooks
+\end{itemize}
+\item LaTeX advantages:
+\begin{itemize}
+\item Precise control over layout
+\item Extensive symbol library
+\item Automatic numbering
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Basic Elements}
+\begin{frame}[fragile]{Inline vs Display Math}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{lstlisting}
+Einstein's equation: $E=mc^2$
+
+Display equation:
+\[
+\sum_{n=1}^\infty \frac{1}{n^2} 
+= \frac{\pi^2}{6}
+\]
+\end{lstlisting}
+
+\column{0.5\textwidth}
+Output:\\
+Einstein's equation: \( E=mc^2 \)
+
+Display equation:
+\[
+\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}
+\]
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Fractions and Roots}
+\begin{lstlisting}
+\[
+\sqrt[3]{\frac{x^2}{y^3}} \quad
+\frac{\partial^2 f}{\partial x^2}
+\]
+\end{lstlisting}
+
+Output:
+\[
+\sqrt[3]{\frac{x^2}{y^3}} \quad \frac{\partial^2 f}{\partial x^2}
+\]
+
+\begin{block}{Continued Fractions}
+\begin{lstlisting}
+\cfrac{1}{1+\cfrac{2}{1+\cfrac{3}{1+\dots}}}
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\section{Advanced Features}
+\begin{frame}[fragile]{Matrices and Arrays}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{lstlisting}
+\[
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+\]
+\end{lstlisting}
+
+\column{0.5\textwidth}
+Output:
+\[
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+\]
+\end{columns}
+
+\begin{alertblock}{Matrix Variants}
+\begin{itemize}
+\item \texttt{bmatrix}: Square brackets
+\item \texttt{vmatrix}: Vertical bars
+\item \texttt{Bmatrix}: Curly braces
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Multi-line Equations}
+\begin{lstlisting}
+\begin{align}
+f(x) &= (a+b)^3 \nonumber \\
+     &= a^3 + 3a^2b \nonumber \\
+     &\quad + 3ab^2 + b^3
+\end{align}
+\end{lstlisting}
+
+Output:
+\begin{align}
+f(x) &= (a+b)^3 \nonumber \\
+     &= a^3 + 3a^2b \nonumber \\
+     &\quad + 3ab^2 + b^3
+\end{align}
+\end{frame}
+
+\section{Symbols and Operators}
+\begin{frame}{Common Mathematical Symbols}
+\begin{table}
+\centering
+\begin{tabular}{ll}
+\hline
+Symbol & Code \\
+\hline
+\( \forall \) & \texttt{\textbackslash forall} \\
+\( \exists \) & \texttt{\textbackslash exists} \\
+\( \in \) & \texttt{\textbackslash in} \\
+\( \subset \) & \texttt{\textbackslash subset} \\
+\( \cup \) & \texttt{\textbackslash cup} \\
+\( \cap \) & \texttt{\textbackslash cap} \\
+\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Operator Examples}
+\begin{exampleblock}{Common Operators}
+\begin{itemize}
+\item Summation: \texttt{\textbackslash sum}
+\item Product: \texttt{\textbackslash prod}
+\item Integral: \texttt{\textbackslash int}
+\item Limit: \texttt{\textbackslash lim}
+\end{itemize}
+\end{exampleblock}
+
+\begin{exampleblock}{Usage}
+\begin{lstlisting}
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+\end{lstlisting}
+Output:
+\[
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+\]
+\end{exampleblock}
+\end{frame}
+
+\section{Best Practices}
+\begin{frame}{Equation Numbering}
+\begin{itemize}
+\item Use \texttt{equation} for single equations
+\item Use \texttt{align} for multi-line equations
+\item Reference equations with \texttt{\textbackslash label}
+\item Maintain consistent numbering style
+\item Group related equations
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Common Errors and Solutions}
+\begin{alertblock}{Frequent Mistakes}
+\begin{itemize}
+\item Missing \$ symbols
+\item Unclosed math environments
+\item Incorrect package loading
+\item Math mode conflicts
+\end{itemize}
+\end{alertblock}
+
+\begin{block}{Troubleshooting Tips}
+\begin{itemize}
+\item Check compilation logs
+\item Use minimal working examples
+\item Consult package documentation
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Summary}
+\begin{itemize}
+\item LaTeX provides superior math typesetting
+\item Specialized environments for equations
+\item Extensive symbol library
+\item Advanced formatting control
+\item Professional results
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Resources}
+\begin{itemize}
+\item Overleaf Documentation: \url{https://overleaf.com/learn}
+\item LaTeX Mathematics: \url{https://en.wikibooks.org/wiki/LaTeX/Mathematics}
+\item Comprehensive Symbols List: \url{https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols}
+\end{itemize}
+\end{frame}
+
+\end{document}
